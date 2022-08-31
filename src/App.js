@@ -1,7 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import React from "react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Account from "./components/Account";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
+import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
     return (
@@ -9,11 +11,15 @@ function App() {
             <h1 className="text-center text-3xl font-bold">
                 Firebase Auth & Context
             </h1>
-            <Routes>
-                <Route path="/" element={<Signin />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/account" element={<Account />} />
-            </Routes>
+            <BrowserRouter>
+                <AuthContextProvider>
+                    <Routes>
+                        <Route path="/" element={<Signin />} />
+                        <Route path="/signup" element={<Signup />} />
+                        <Route path="/account" element={<Account />} />
+                    </Routes>
+                </AuthContextProvider>
+            </BrowserRouter>
         </div>
     );
 }
