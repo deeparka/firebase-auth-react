@@ -9,7 +9,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 function App() {
     return (
         <div>
-            <h1 className="text-center text-3xl font-bold" >
+            <h1 className="text-center text-3xl font-bold">
                 Firebase Auth & Context
             </h1>
             <BrowserRouter>
